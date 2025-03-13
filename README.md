@@ -39,10 +39,10 @@ docker pull ollama/ollama:latest # docker
 # -d = run container in background
 # -v = bind mount volume
 # -p = publish containers ports to the host
-docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama_image ollama/ollama:latest
 
 # download and run a model in the container
-docker exec -it ollama ollama run llama3.2
+docker exec -it ollama_image ollama run llama3.2
 ```
 
-To check that this worked, use an internet browser and navigate to localhost:11434 where it should read "Ollama is running."
+To check that this worked, use an internet browser and navigate to localhost:11434 where it should read, "Ollama is running."
