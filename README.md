@@ -23,7 +23,7 @@ To set up a virtual environment from VS Code:
 - select Venv, select Python 3.13.0 and when prompted, 
 - check the box for requirements.txt
 
-<br />More information can be found here: https://code.visualstudio.com/docs/python/environments
+More information can be found here: https://code.visualstudio.com/docs/python/environments
 
 
 ## Running the Ollama Docker Container
