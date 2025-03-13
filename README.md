@@ -10,7 +10,7 @@ The required packages are included in requirements.txt. Two options for installi
 ### (1) Local Installation
 From terminal run the following:
 ```
-# change the working directory to the location of the requirements.txt file
+# change your current directory to the location of the requirements.txt file
 cd "insert/path/here/requirements.txt"
 
 # install the packages contained in the file
