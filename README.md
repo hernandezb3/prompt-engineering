@@ -1,4 +1,4 @@
-## Prompt Engineering
+# Prompt Engineering Paper
 This repository showcases two examples from Anglin et al. (In Progress) showcasing the differences in prompt engineering strategies across the examples.
 
 ## Downloading Python
