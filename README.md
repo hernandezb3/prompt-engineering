@@ -2,12 +2,12 @@
 This repository showcases two examples from Anglin et al. (In Progress) showcasing the differences in prompt engineering strategies across the examples.
 
 ## Downloading Python
-This code was built using Python 3.13.0
+This code was built using Python 3.13.0.
 If you need to install Python, navigate to https://www.python.org/downloads/
 
 ## Installing the Required Packages
 The required packages are included in requirements.txt. Two options for installing these packages are documented here (1) local installation and (2) virtual environment
-### Local Installation
+### (1) Local Installation
 From terminal run the following:
 ```
 # change the working directory to the location of the requirements.txt file
@@ -16,7 +16,7 @@ cd "insert/path/here/requirements.txt"
 # install the packages contained in the file
 pip3 install -r requirements.txt
 ```
-### Virtual Environment
+### (2) Virtual Environment
 To set up a virtual environment from VS Code open the command palette (⇧⌘P or View > Command Palette) and search for Python: Create Environment, select Venv, select Python 3.13.0 and when prompted, check the box for requirements.txt. More information can be found here: https://code.visualstudio.com/docs/python/environments
 
 
