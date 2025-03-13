@@ -1,0 +1,23 @@
+import math
+import re
+
+import pandas as pd
+from langchain_ollama import OllamaLLM
+
+from library import start, dictionary
+
+# import data
+data = pd.read_csv(start.DATA_DIR + "raw/goodreads-books-reviews-290312/goodreads_train.csv")
+
+dictionary.prompts["zero_shot"]
+
+# create the model
+model_id = "llama3.2"
+
+# run docker container (see read me for instructions)
+#load_dotenv(override = True)
+ollama_server_url = "http://localhost:11434"
+#ollama_server_url = os.environ["http://localhost:11434"]
+llm = OllamaLLM(model = model_id, base_url = ollama_server_url)
+
+# return results
