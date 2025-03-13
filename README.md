@@ -1,5 +1,5 @@
 ## Prompt Engineering
-This code works through the two examples from XX paper showcasing the differences in prompt engineering strategies.
+This repository showcases two examples from Anglin et al. (In Progress) showcasing the differences in prompt engineering strategies across the examples.
 
 ## Downloading Python
 This code was built using Python 3.13.0
