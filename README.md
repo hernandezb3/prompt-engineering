@@ -17,7 +17,12 @@ cd "insert/path/here/requirements.txt"
 pip3 install -r requirements.txt
 ```
 ### (2) Virtual Environment
-To set up a virtual environment from VS Code open the command palette (⇧⌘P or View > Command Palette) and search for Python: Create Environment, select Venv, select Python 3.13.0 and when prompted, check the box for requirements.txt. More information can be found here: https://code.visualstudio.com/docs/python/environments
+To set up a virtual environment from VS Code:
+- open the Command Palette (⇧⌘P or View > Command Palette),
+- search for Python: Create Environment,
+- select Venv, select Python 3.13.0 and when prompted, 
+- check the box for requirements.txt
+More information can be found here: https://code.visualstudio.com/docs/python/environments
 
 
 ## Running the Ollama Docker Container
@@ -40,4 +45,4 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 docker exec -it ollama ollama run llama3.2
 ```
 
-To check that this worked, use an internet browser and navigate to localhost:11434
+To check that this worked, use an internet browser and navigate to localhost:11434 where it should read Ollama is running.
