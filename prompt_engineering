@@ -1,21 +1,29 @@
+# cmd + shift + p = .venv
+
 import math
 import re
 import pandas as pd
 from langchain_ollama import OllamaLLM
 from library import start, dictionary, fit
 
+# PART 1: create the model
+model_id = "llama3.2"
+# create docker or apptainer container container (see read me for instructions)
+# where the model is published
+ollama_server_url = "http://localhost:11434"
+# tell langchain which model is published where
+llm = OllamaLLM(model = model_id, base_url = ollama_server_url)
+
+
+# PART 2: create the input
 # import data
+
+# prompt = chain + persona + task + knowledge + shots
+# prompt + case
+
 data = pd.read_csv(start.DATA_DIR + "raw/goodreads-books-reviews-290312/goodreads_train.csv")
 
 dictionary.prompts["zero_shot"]
 
-# create the model
-model_id = "llama3.2"
 
-# run docker container (see read me for instructions)
-#load_dotenv(override = True)
-ollama_server_url = "http://localhost:11434"
-#ollama_server_url = os.environ["http://localhost:11434"]
-llm = OllamaLLM(model = model_id, base_url = ollama_server_url)
-
-# return results
+# PART 3: generate output
