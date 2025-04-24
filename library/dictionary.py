@@ -1,4 +1,4 @@
-task = {"zero_shot": "Is the sentiment of this book review positive or negative?",
+prompts = {"zero_shot": "Is the sentiment of this book review positive or negative?",
         "few_shot": "Is the sentiment of this book review positive or negative? An example of a positive review is: . An example of a negative review is: .",
         "chain_of_thought": "Think carefully and logically, explaining your answer. Is the sentiment of this book review positive or negative?",
         "meta":"",

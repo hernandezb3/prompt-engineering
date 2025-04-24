@@ -1,10 +1,8 @@
 import math
 import re
-
 import pandas as pd
 from langchain_ollama import OllamaLLM
-
-from library import start, dictionary
+from library import start, dictionary, fit
 
 # import data
 data = pd.read_csv(start.DATA_DIR + "raw/goodreads-books-reviews-290312/goodreads_train.csv")
