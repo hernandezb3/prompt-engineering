@@ -14,7 +14,7 @@ logic = {"no": "Do not explain your logic, only provide a numeric rating. ",
          "chain": "Think carefully and logically. ",
          "steps": "Think this through step by step. "} # yes = chain of thought
 
-construct = ["meaning making", "emotional invalidation", "negative core beliefs", "reflective functioning"]
+construct = ["meaning making", "negative core beliefs", "emotional invalidation", "perspective taking"]
 
 model_name = {"meta-llama/Llama-3.3-70B-Instruct": "llama3.3",
                "meta-llama/Llama-3.2-1B-Instruct": "llama3.2_1b", 

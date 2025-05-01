@@ -6,6 +6,7 @@ import pandas as pd
 from langchain_ollama import OllamaLLM
 from library import start, dictionary, fit
 
+
 # PART 1: create the model
 model_id = "llama3.2"
 # create docker or apptainer container container (see read me for instructions)
@@ -14,10 +15,11 @@ ollama_server_url = "http://localhost:11434"
 # tell langchain which model is published where
 llm = OllamaLLM(model = model_id, base_url = ollama_server_url)
 
+
 # PART 2: create the input
 TASK = "crisp"
 PERSONA = "therapist persona"
-CONSTRUCT = dictionary.construct[0]
+CONSTRUCT = dictionary.construct[1] # 1 = negative core beliefs
 LOGIC = "no"
 
 # read in few shot and knowledge for constructs
@@ -25,16 +27,16 @@ construct_info = pd.read_csv(start.PROMPT_DIR + "constructs.csv")
 construct_info = construct_info.set_index(construct_info["construct"])
 
 # few shot = examples
-example = {"meaning making": construct_info["example"]["meaning making"],
-           "emotional invalidation": construct_info["example"]["emotional invalidation"],
-           "negative core beliefs": construct_info["example"]["negative core beliefs"],
-           "reflective functioning": construct_info["example"]["reflective functioning"]}
+example = {dictionary.construct[0]: construct_info["example"][dictionary.construct[0]],
+           dictionary.construct[1]: construct_info["example"][dictionary.construct[1]],
+           dictionary.construct[2]: construct_info["example"][dictionary.construct[2]],
+           dictionary.construct[3]: construct_info["example"][dictionary.construct[3]]}
 
 # knowledge = construct definitions
-knowledge = {"meaning making": construct_info["definition"]["meaning making"],
-             "emotional invalidation": construct_info["definition"]["emotional invalidation"],
-             "negative core beliefs": construct_info["definition"]["negative core beliefs"],
-             "reflective functioning": construct_info["definition"]["reflective functioning"]}
+knowledge = {dictionary.construct[0]: construct_info["definition"][dictionary.construct[0]],
+             dictionary.construct[1]: construct_info["definition"][dictionary.construct[1]],
+             dictionary.construct[2]: construct_info["definition"][dictionary.construct[2]],
+             dictionary.construct[3]: construct_info["definition"][dictionary.construct[3]]}
 
 # prompt = persona + task + knowledge + shots + format + logic
 # input = prompt + case
@@ -47,13 +49,11 @@ prompt = {"zero-shot": dictionary.task[TASK] + CONSTRUCT + "? " + dictionary.for
 
 # cases
 data = pd.read_csv(start.DATA_DIR + "negative_core_beliefs_train_gold.csv")
+# drop NA
+data = data.dropna(subset = ["text"])
 
+# PART 3: generate output
 for each_prompt in prompt:
     for case in data["text"]:
-        input = each_prompt + case
+        input = prompt[each_prompt] + ' Here is the text: "' + case + '"'
         print(input)
-
-
-for each_prompt in prompt:
-    print(each_prompt)
-# PART 3: generate output
