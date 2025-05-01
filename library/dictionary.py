@@ -1,38 +1,22 @@
-prompts = {"zero_shot": "Is the sentiment of this book review positive or negative?",
-           "few_shot": "Is the sentiment of this book review positive or negative? An example of a positive review is: . An example of a negative review is: .",
-           "chain_of_thought": "Think carefully and logically, explaining your answer. Is the sentiment of this book review positive or negative?",
-           "meta":"",
-           "self_consistency": "",
-           "generate_knowledge": "A positive book review provides encouragement, admiration, or praise for a book's characters, plot, prose, etc. A negative book review expresses disapproval, faults, or mistakes and highlights areas for imporvement. Based on these definitions, is the sentiment of this book review positive or negative?",
-           "prompt_chaining": "",
-           "tree_of_thoughts": "Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realises they're wrong at any point then they leave. The question is: Is the sentiment of this book review positive or negative?",
-           "retrieval_augmented_generation": "",
-           "automatic_reasoning": "",
-           "automatic_prompt_engineer": "",
-           "active_prompt": "",
-           "directional_stimulus": "",
-           "program_aided": "",
-           "reAct": "",
-           "reflexion": "",
-           "multimodal_CoT": "",
-           "graph": "",
-           "panel_gpt": "3 experts are discussing the question with a panel discussion, trying to solve it step by step, and make sure the result is correct. Is the sentiment of this book review positive or negative?"}
+task = {"goodreads": "Rate the sentiment of this book review. ",
+         "oamm": "Does the following text show evidence of ",
+         "crisp": "Does the following text show evidence of "}
 
-construct = ["meaning_making", "emotion_invalidation", "negative_core_beliefs", "reflective functioning"]
+format = {"goodreads": "Rate on a scale from 0 = bad to 5 = good. ",
+        "oamm": "Rate on a scale from 1 = to 5 = ",
+        "crisp": "Assign a 1 if there is evidence and a 0 if there is not. "}
 
-persona = {"therapist": "You are a therapist.",
-           "psychologist": "You are a pyschologist.",
-           "psychiatrist": "You are a psychiatrist."}
+persona = {"tree of thoughts": "Imagine there are 3 experts answering the question. All experts will write down 1 step of their thinking and share with the group and then move onto the next step. At each step eliminate any expert that is wrong. ",
+           "therapist persona": "You are a therapist. ",
+           "psychologist persona": "You are a pyschologist. "}
 
-chain = {"think": "Think carefully and logically.",
-         "steps": "Think this through step by step."}
+logic = {"no": "Do not explain your logic, only provide a numeric rating. ",
+         "chain": "Think carefully and logically. ",
+         "steps": "Think this through step by step. "} # yes = chain of thought
 
-knowledge = {"meaning_making": "",
-             "emotion_invalidation": "",
-             "negative_core_beliefs": "",
-             "reflective functioning": ""}
+construct = ["meaning making", "emotional invalidation", "negative core beliefs", "reflective functioning"]
 
-model_names = {"meta-llama/Llama-3.3-70B-Instruct": "llama3.3",
+model_name = {"meta-llama/Llama-3.3-70B-Instruct": "llama3.3",
                "meta-llama/Llama-3.2-1B-Instruct": "llama3.2_1b", 
                "meta-llama/Llama-3.2-3B-Instruct": "llama3.2",
                "meta-llama/Llama-3.1-8B": "llama3.1",
